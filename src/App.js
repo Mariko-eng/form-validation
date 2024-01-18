@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import { Container } from "@mui/material";
+import { styled } from "@mui/system";
+import MyForm from "./MyForm";
+
+const CenteredContainer = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+  margin: 20px;
+`;
 
 function App() {
+  const appTheme = createTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={appTheme}>
+      <CssBaseline />
+      <CenteredContainer display={"flex"} style={{ justifyContent: "center" }}>
+        <MyForm />
+        {/* <Login/> */}
+      </CenteredContainer>
+    </ThemeProvider>
   );
 }
 
